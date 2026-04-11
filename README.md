@@ -141,6 +141,8 @@ HOLELWRDLO
 # Autori
 
 Student: Grejona Gashi, Gerti Parduzi, Elmaze Murati, Genti Kafexhiu
+---
+
 Lënda: Siguri e të dhënave
 
 ---
