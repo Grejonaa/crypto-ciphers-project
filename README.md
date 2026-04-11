@@ -138,7 +138,7 @@ HOLELWRDLO
 ---
 
 
-# Autori
+# Punuan:
 
 Student: Grejona Gashi, Gerti Parduzi, Elmaze Murati, Genti Kafexhiu
 ---
