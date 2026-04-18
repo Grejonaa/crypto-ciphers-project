@@ -1,4 +1,5 @@
 def autokey_encrypt(plaintext, key):
+    
     plaintext = plaintext.upper()
     key = key.upper()
 
