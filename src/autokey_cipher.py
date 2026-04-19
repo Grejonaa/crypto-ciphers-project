@@ -20,3 +20,28 @@ def autokey_encrypt(plaintext, key):
             cipher += ch
 
     return cipher
+
+def autokey_decrypt(ciphertext, key):
+    ciphertext = ciphertext.upper()
+    key = key.upper()
+
+    full_key = key
+    plaintext = ""
+    key_index = 0
+
+    for char in ciphertext:
+        if char.isalpha():
+            c = ord(char) - ord('A')
+            k = ord(full_key[key_index]) - ord('A')
+
+            p = (c - k) % 26
+            letter = chr(p + ord('A'))
+
+            plaintext += letter
+            full_key += letter
+            key_index += 1
+        else:
+            # ruan spaces, numra, simbole pa i ndryshu
+            plaintext += char
+
+    return plaintext
