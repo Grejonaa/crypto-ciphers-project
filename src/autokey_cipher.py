@@ -35,5 +35,4 @@ def autokey_decrypt(ciphertext, key):
 
 
 
-else:
-    print("Zgjedhje jo valide!")
+
