@@ -1,30 +1,50 @@
+from autokey import autokey_encrypt, autokey_decrypt
 from redefence_cipher import redefence_encrypt, redefence_decrypt
 
+algorithm = input("Zgjedh algoritmin (A)utokey ose (R)edefence: ").lower()
 choice = input("Zgjedh (E)ncrypt ose (D)ecrypt: ").lower()
 
-if choice == 'e':
-    plaintext = input("Shkruaj plaintext: ")
-    key = input("Shkruaj key: ").replace(" ", "").strip()
+if algorithm == 'a':
+    if choice == 'e':
+        plaintext = input("Shkruaj plaintext: ")
+        key = input("Shkruaj key: ")
+        print("Ciphertext:", autokey_encrypt(plaintext, key))
 
-    if key == "":
-        print("Gabim: key nuk mund te jete bosh.")
-    elif not key.isalpha():
-        print("Gabim: key duhet te permbaje vetem shkronja.")
+    elif choice == 'd':
+        ciphertext = input("Shkruaj ciphertext: ")
+        key = input("Shkruaj key: ")
+        print("Plaintext:", autokey_decrypt(ciphertext, key))
+
     else:
-        ciphertext, _, _ = redefence_encrypt(plaintext, key)
-        print("\nCiphertext:", ciphertext)
+        print("Zgjedhje jo valide!")
 
-elif choice == 'd':
-    ciphertext = input("Shkruaj ciphertext: ")
-    key = input("Shkruaj key: ").replace(" ", "").strip()
+elif algorithm == 'r':
+    if choice == 'e':
+        plaintext = input("Shkruaj plaintext: ")
+        key = input("Shkruaj key: ").replace(" ", "").strip()
 
-    if key == "":
-        print("Gabim: key nuk mund te jete bosh.")
-    elif not key.isalpha():
-        print("Gabim: key duhet te permbaje vetem shkronja.")
+        if key == "":
+            print("Gabim: key nuk mund te jete bosh.")
+        elif not key.isalpha():
+            print("Gabim: key duhet te permbaje vetem shkronja.")
+        else:
+            ciphertext, _, _ = redefence_encrypt(plaintext, key)
+            print("Ciphertext:", ciphertext)
+
+    elif choice == 'd':
+        ciphertext = input("Shkruaj ciphertext: ")
+        key = input("Shkruaj key: ").replace(" ", "").strip()
+
+        if key == "":
+            print("Gabim: key nuk mund te jete bosh.")
+        elif not key.isalpha():
+            print("Gabim: key duhet te permbaje vetem shkronja.")
+        else:
+            plaintext = redefence_decrypt(ciphertext, key)
+            print("Plaintext:", plaintext)
+
     else:
-        plaintext = redefence_decrypt(ciphertext, key)
-        print("\nPlaintext:", plaintext)
+        print("Zgjedhje jo valide!")
 
 else:
-    print("Zgjedhje jo valide!")
+    print("Algoritmi jo valid!")
