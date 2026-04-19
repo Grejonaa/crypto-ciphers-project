@@ -123,16 +123,16 @@ Plaintext:
 HELLOWORLD
 ```
 
-Çelësi (numri i rreshtave):
+Key:
 
 ```
-3
+ZIG
 ```
 
 Ciphertext (shembull):
 
 ```
-HOLELWRDLO
+LOELWRDHOL
 ```
 
 ---
