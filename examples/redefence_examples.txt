@@ -1,0 +1,85 @@
+## REDEFENCE CIPHER SHEMBULL
+
+INPUT:  
+Plaintext: FAKULTETIFIEKIKS  
+Key: EAR  
+
+---
+
+ ENKRIPTIMI
+
+1. Numri i rreshtave  
+Key = EAR → 3 shkronja → 3 rails  
+
+2. Modeli zig-zag  
+1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2  
+
+Plaintext:  
+F A K U L T E T I F I E K I K S  
+
+Vendosja në rails:  
+
+Rail 1: F     	L     I     K  
+Rail 2:   A   U  T  T  F  E  I   S  
+Rail 3:     K     E     I      K  
+
+3. Përmbajtja e rails  
+
+Rail 1 = FLIK  
+Rail 2 = AUTTFEIS  
+Rail 3 = KEIK  
+
+4. Renditja sipas key-it  
+
+Key = E A R  
+
+Renditja alfabetike: A, E, R  
+
+A → Rail 2  
+E → Rail 1  
+R → Rail 3  
+
+Rendi i leximit:  
+Rail 2 → Rail 1 → Rail 3  
+
+5. Formimi i ciphertext-it  
+
+AUTTFEIS + FLIK + KEIK  
+
+CIPHERTEXT: AUTTFEISFLIKKEIK  
+
+---
+
+DEKRIPTIMI
+
+INPUT:  
+Ciphertext: AUTTFEISFLIKKEIK  
+Key: EAR  
+
+1. Gjatësia e rails  
+
+Rail 1 = 4  
+Rail 2 = 8  
+Rail 3 = 4  
+
+2. Renditja sipas key-it  
+
+A → Rail 2  
+E → Rail 1  
+R → Rail 3  
+
+3. Ndarja e ciphertext-it  
+
+Rail 2 = AUTTFEIS  
+Rail 1 = FLIK  
+Rail 3 = KEIK  
+
+4. Rindërtimi i tekstit  
+
+Modeli zig-zag:  
+1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2  
+
+Rezultati:  
+F A K U L T E T I F I E K I K S  
+
+PLAINTEXT: FAKULTETIFIEKIKS
