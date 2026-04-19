@@ -6,18 +6,19 @@ def autokey_encrypt(plaintext, key):
         raise ValueError("Key nuk mund të jetë bosh!")
 
     cipher = ""
-    full_key = key
+    key_stream = list(key)
 
-    for ch in plaintext:
-        if ch.isalpha():
-            p = ord(ch) - ord('A')
-            k = ord(full_key[0]) - ord('A')
-            full_key = full_key[1:] + ch
+    for char in plaintext:
+        if char.isalpha():
+            p = ord(char) - ord('A')
+            k = ord(key_stream.pop(0)) - ord('A')
 
             c = (p + k) % 26
             cipher += chr(c + ord('A'))
+
+            key_stream.append(char)
         else:
-            cipher += ch
+            cipher += char
 
     return cipher
 
@@ -25,6 +26,9 @@ def autokey_decrypt(ciphertext, key):
     ciphertext = ciphertext.upper()
     key = key.upper()
 
+    if not key:
+        raise ValueError("Key nuk mund të jetë bosh!")
+         
     full_key = key
     plaintext = ""
     key_index = 0
