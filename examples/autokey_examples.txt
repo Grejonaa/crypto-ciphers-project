@@ -1,0 +1,51 @@
+AUTOKEY CIPHER SHEMBULL
+
+ALFABETI:
+A=0  B=1  C=2  D=3  E=4  F=5  G=6  H=7  I=8  J=9
+K=10 L=11 M=12 N=13 O=14 P=15 Q=16 R=17 S=18 T=19
+U=20 V=21 W=22 X=23 Y=24 Z=25
+
+INPUT:
+Plaintext: PASSWORD
+Key: SIGURI
+
+🔐 ENKRIPTIMI
+
+Key + Plaintext:
+SIGURI + PASSWORD → SIGURIPASSWORD
+
+Plaintext: P  A  S  S  W  O  R  D
+Key:       S  I  G  U  R  I  P  A
+
+
+P | K | P | K | (P+K)%26 | C
+--------------------------------
+P | S |15 |18 | 7        | H
+A | I | 0 | 8 | 8        | I
+S | G |18 | 6 |24        | Y
+S | U |18 |20 |12        | M
+W | R |22 |17 |13        | N
+O | I |14 | 8 |22        | W
+R | P |17 |15 | 6        | G
+D | A | 3 | 0 | 3        | D
+
+CIPHERTEXT: HIYMNWGD
+
+🔓 DEKRIPTIMI
+
+INPUT:
+Ciphertext: HIYMNWGD
+Key: SIGURI
+
+C | K | C | K | (C-K)%26 | P
+--------------------------------
+H | S | 7  |18 |15       | P
+I | I | 8  | 8 | 0       | A
+Y | G |24  | 6 |18       | S
+M | U |12  |20 |18       | S
+N | R |13  |17 |22       | W
+W | I |22  | 8 |14       | O
+G | P | 6  |15 |17       | R
+D | A | 3  | 0 | 3       | D
+
+PLAINTEXT: PASSWORD
