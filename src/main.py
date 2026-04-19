@@ -1,4 +1,4 @@
-from autokey import autokey_encrypt, autokey_decrypt
+from autokey_cipher import autokey_encrypt, autokey_decrypt
 from redefence_cipher import redefence_encrypt, redefence_decrypt
 
 algorithm = input("Zgjedh algoritmin (A)utokey ose (R)edefence: ").lower()
