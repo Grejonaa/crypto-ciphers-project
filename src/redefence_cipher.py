@@ -53,3 +53,17 @@ def redefence_decrypt(ciphertext, key):
         current_row += direction
 
     return "".join(result)
+
+def redefence_encrypt(plaintext, key):
+    if not isinstance(plaintext, str) or not isinstance(key, str):
+        raise TypeError("Plaintext dhe key duhet te jene string.")
+
+    if len(key) == 0:
+        raise ValueError("Key nuk mund te jete bosh.")
+
+    rail_count = len(key)
+    rails = build_zigzag_rails(plaintext, rail_count)
+    order = get_key_order(key)
+    ciphertext = "".join(rails[i] for i in order)
+
+    return ciphertext, rails, order
